@@ -167,11 +167,23 @@ body {
     backdrop-filter: blur(15px);
 }
 
-.section-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 15px;
+.section-header h3,
+.connection-label,
+.character-name,
+.mood-text {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 105, 180, 0.4); /* pink glow */
+}
+
+.character-name {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.mood-text {
+  font-size: 18px;
+  font-style: italic;
+  color: #ddd;
 }
 
 .section-header .icon {
