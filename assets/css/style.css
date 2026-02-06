@@ -90,14 +90,16 @@ body {
 }
 
 .character-section {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    backdrop-filter: blur(15px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(15px);
 }
 
 .character-image-container {
