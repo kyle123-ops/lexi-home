@@ -86,3 +86,21 @@ input[type="text"] {
   padding: 6px;
   border-radius: 6px;
 }
+/* Ensure background fits screen */
+.background {
+  position: fixed;
+  inset: 0;
+  background-image: url('assets/images/seoul-apartment.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  filter: brightness(0.35);
+}
+
+/* Resize Lexi sticker image */
+.lexi-sticker img {
+  width: 250px;
+  max-width: 90vw;
+  height: auto;
+  margin-bottom: 20px;
+}
