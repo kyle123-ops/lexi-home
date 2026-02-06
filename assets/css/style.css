@@ -160,11 +160,13 @@ body {
 .notes-section,
 .wishes-section,
 .music-section {
-    background: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    backdrop-filter: blur(15px);
+  background: rgba(0, 0, 0, 0.4); /* soft dark backdrop */
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 25px rgba(255, 105, 180, 0.3); /* soft pink glow */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* soft edge */
 }
 
 .section-header h3,
