@@ -153,22 +153,6 @@ body {
     border-radius: 10px;
     t
     
-.mood-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  background: var(--calm-content); /* replace with active mood color */
-  filter: blur(30px);
-  z-index: 0;
-  opacity: 0.6;
-  animation: pulse 3s ease-in-out infinite;
-    }ansition: width 0.5s ease, background 0.5s ease;
-    box-shadow: 0 0 10px rgba(245, 240, 230, 0.6);
-}
 
 .current-thought,
 .notes-section,
