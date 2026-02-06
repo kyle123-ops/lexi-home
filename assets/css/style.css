@@ -1,106 +1,366 @@
-/* Base styles */
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --intimate-warm: rgba(255, 191, 105, 0.6);
+    --playful-teasing: rgba(255, 215, 120, 0.5);
+    --protective-grounded: rgba(64, 64, 64, 0.7);
+    --contemplative-connected: rgba(135, 155, 170, 0.5);
+    --flirty-heated: rgba(255, 150, 170, 0.6);
+    --calm-content: rgba(245, 240, 230, 0.4);
+}
+
 body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #0e0e0e;
-  color: #f7f7f7;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
 }
 
-/* Container for layout */
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
 }
 
-/* Background (optional, can replace with image) */
 .background {
-  background-image: url('seoul-background.jpg');
-  background-size: cover;
-  background-position: center;
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  filter: brightness(0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/seoul-apartment.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0.7);
+    z-index: -1;
 }
 
-/* Lexi sticker image */
-.lexi-sticker img {
-  width: 280px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(255, 204, 153, 0.3);
-  margin-bottom: 20px;
+.content {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    z-index: 1;
 }
 
-/* Mood bar */
-.mood-bar {
-  margin: 10px 0;
+.connection-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
 }
+
+.signal-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+}
+
 .bar {
-  width: 200px;
-  height: 12px;
-  background: #333;
-  border-radius: 6px;
-  overflow: hidden;
-  margin-top: 6px;
-}
-#mood-level {
-  width: 70%;
-  height: 100%;
-}
-.mood-glow.warm {
-  background: linear-gradient(to right, #ffbe76, #ff9a76);
-  box-shadow: 0 0 8px #ffbe76;
+    width: 4px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    transition: background 0.3s;
 }
 
-/* Spotify embed */
-.music-player {
-  margin: 20px 0;
+.bar:nth-child(2) { height: 12px; }
+.bar:nth-child(3) { height: 16px; }
+.bar:nth-child(4) { height: 20px; }
+
+.bar.active {
+    background: #ff69b4;
+    box-shadow: 0 0 8px #ff69b4;
 }
 
-/* Notes area */
-.notes textarea {
-  width: 300px;
-  height: 100px;
-  background: #222;
-  color: #fff;
-  border: 1px solid #555;
-  padding: 10px;
-  border-radius: 8px;
-  resize: vertical;
+.connection-label {
+    font-size: 12px;
+    color: #ff69b4;
+    font-weight: 500;
 }
 
-/* Optional features */
-.optional {
-  margin-top: 20px;
-  font-size: 14px;
-}
-.heartlink, .thoughts, .wish-bar, .timestamp {
-  margin-bottom: 10px;
-}
-input[type="text"] {
-  background: #1a1a1a;
-  border: 1px solid #444;
-  color: #eee;
-  padding: 6px;
-  border-radius: 6px;
-}
-/* Ensure background fits screen */
-.background {
-  position: fixed;
-  inset: 0;
-  background-image: url('assets/images/seoul-apartment.jpg');
-  background-size: cover;
-  background-position: center;
-  z-index: -1;
-  filter: brightness(0.35);
+.character-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(15px);
 }
 
-/* Resize Lexi sticker image */
-.lexi-sticker img {
-  width: 250px;
-  max-width: 90vw;
-  height: auto;
-  margin-bottom: 20px;
+.character-image-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
 }
+
+.character-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+}
+
+.mood-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 130px;
+    height: 130px;
+    border-radius: 15px;
+    background: var(--calm-content);
+    filter: blur(20px);
+    z-index: 1;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 0.9; }
+}
+
+.status-info {
+    flex: 1;
+}
+
+.character-name {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.mood-text {
+    font-size: 16px;
+    color: #f5f0e6;
+    margin-bottom: 12px;
+    font-style: italic;
+}
+
+.mood-bar-container {
+    width: 100%;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.mood-bar {
+    height: 100%;
+    width: 75%;
+    background: linear-gradient(90deg, #f5f0e6, #fff5e1);
+    border-radius: 10px;
+    transition: width 0.5s ease, background 0.5s ease;
+    box-shadow: 0 0 10px rgba(245, 240, 230, 0.6);
+}
+
+.current-thought,
+.notes-section,
+.wishes-section,
+.music-section {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(15px);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.section-header .icon {
+    font-size: 20px;
+}
+
+.section-header h3 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.thought-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #e0e0e0;
+    font-style: italic;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border-left: 3px solid #ff69b4;
+}
+
+.notes-input-container,
+.wish-input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+#notesInput {
+    flex: 1;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 14px;
+    resize: vertical;
+    min-height: 60px;
+    font-family: inherit;
+}
+
+#wishInput {
+    flex: 1;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+#notesInput::placeholder,
+#wishInput::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#notesInput:focus,
+#wishInput:focus {
+    outline: none;
+    border-color: #ff69b4;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.add-note-btn,
+.add-wish-btn {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-note-btn:hover,
+.add-wish-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+}
+
+.add-note-btn:active,
+.add-wish-btn:active {
+    transform: scale(0.95);
+}
+
+.notes-list,
+.wishes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.note-item,
+.wish-item {
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    color: #e0e0e0;
+    font-size: 14px;
+    line-height: 1.5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.note-item:hover,
+.wish-item:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.delete-btn {
+    background: rgba(255, 69, 69, 0.6);
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.3s;
+}
+
+.delete-btn:hover {
+    background: rgba(255, 69, 69, 0.9);
+}
+
+.spotify-container {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.last-updated {
+    text-align: center;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 600px) {
+    .content {
+        padding: 15px;
+    }
+
+    .character-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .character-image-container {
+        margin: 0 auto;
+    }
+}
+
+.mood-intimate .mood-glow { background: var(--intimate-warm); }
+.mood-playful .mood-glow { background: var(--playful-teasing); }
+.mood-protective .mood-glow { background: var(--protective-grounded); }
+.mood-contemplative .mood-glow { background: var(--contemplative-connected); }
+.mood-flirty .mood-glow { background: var(--flirty-heated); }
+.mood-calm .mood-glow { background: var(--calm-content); }
