@@ -1,4 +1,4 @@
-heredocument.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     updateTimestamp();
     loadNotes();
     loadWishes();
