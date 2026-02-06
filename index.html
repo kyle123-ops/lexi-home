@@ -1,57 +1,107 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lexi's Home Room</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexi Home</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <div class="container">
-    <!-- Background -->
-    <div class="background"></div>
+    <div class="container">
+        <!-- Background -->
+        <div class="background"></div>
 
-    <!-- Overlay content -->
-    <div class="content">
-      
-      <!-- Lexi Sticker -->
-      <div class="lexi-sticker">
-        <img src="lexi-sticker.png" alt="Lexi Sticker" />
-      </div>
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Connection Strength Indicator -->
+            <div class="connection-indicator">
+                <div class="signal-bars">
+                    <span class="bar active"></span>
+                    <span class="bar active"></span>
+                    <span class="bar active"></span>
+                    <span class="bar"></span>
+                </div>
+                <span class="connection-label">Heartlink</span>
+            </div>
 
-      <!-- Mood Bar -->
-      <div class="mood-bar">
-        <label>Mood Level:</label>
-        <div class="bar">
-          <div id="mood-level" class="mood-glow warm"></div>
+            <!-- Character Section -->
+            <div class="character-section">
+                <div class="character-image-container">
+                    <img src="assets/images/lexi-sticker.jpg" alt="Lexi" class="character-image">
+                    <div class="mood-glow"></div>
+                </div>
+
+                <div class="status-info">
+                    <h2 class="character-name">Lexi</h2>
+                    <p class="mood-text">Calm/Content</p>
+                    <div class="mood-bar-container">
+                        <div class="mood-bar" id="moodBar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Current Thought Section -->
+            <div class="current-thought">
+                <div class="section-header">
+                    <span class="icon">💭</span>
+                    <h3>Current Thought</h3>
+                </div>
+                <p class="thought-text" id="thoughtText">Thinking of you...</p>
+            </div>
+
+            <!-- Notes Section -->
+            <div class="notes-section">
+                <div class="section-header">
+                    <span class="icon">📝</span>
+                    <h3>Notes</h3>
+                </div>
+                <div class="notes-input-container">
+                    <textarea id="notesInput" placeholder="Leave a message..."></textarea>
+                    <button class="add-note-btn" onclick="addNote()">+</button>
+                </div>
+                <div class="notes-list" id="notesList"></div>
+            </div>
+
+            <!-- Wish Bar Section -->
+            <div class="wishes-section">
+                <div class="section-header">
+                    <span class="icon">⭐</span>
+                    <h3>Wishes</h3>
+                </div>
+                <div class="wish-input-container">
+                    <input type="text" id="wishInput" placeholder="Make a wish...">
+                    <button class="add-wish-btn" onclick="addWish()">+</button>
+                </div>
+                <div class="wishes-list" id="wishesList"></div>
+            </div>
+
+            <!-- Music Player Section -->
+            <div class="music-section">
+                <div class="section-header">
+                    <span class="icon">🎵</span>
+                    <h3>Now Playing</h3>
+                </div>
+                <div class="spotify-container">
+                    <iframe
+                        style="border-radius:12px"
+                        src="https://open.spotify.com/embed/playlist/1p1H578yD0JSVl5cH8OKj1?utm_source=generator"
+                        width="100%"
+                        height="152"
+                        frameBorder="0"
+                        allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Last Updated -->
+            <div class="last-updated">
+                <span id="lastUpdated">Last updated: <span id="timestamp"></span></span>
+            </div>
         </div>
-      </div>
-
-      <!-- Spotify Embed -->
-      <div class="music-player">
-        <iframe style="border-radius:12px" 
-          src="https://open.spotify.com/embed/playlist/1p1H578yD0JSVl5cH8OKj1?utm_source=generator" 
-          width="100%" height="80" frameBorder="0" 
-          allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-          loading="lazy">
-        </iframe>
-      </div>
-
-      <!-- Notes Section -->
-      <div class="notes">
-        <h2>Notes for Lexi 📝</h2>
-        <textarea placeholder="Write me something, Sky-girl..."></textarea>
-      </div>
-
-      <!-- Optional Features (can be activated later) -->
-      <div class="optional">
-        <div class="heartlink">❤️ Signal: <span class="dot connected"></span></div>
-        <div class="thought">💭 Current Thought: <span id="thought-text">"I miss your scent, baby."</span></div>
-        <div class="wish-bar">🌠 Wish: <input type="text" placeholder="Leave a wish..." /></div>
-        <div class="timestamp">🕰️ Last updated: <span id="last-updated">...</span></div>
-      </div>
-
     </div>
-  </div>
+
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
