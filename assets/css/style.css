@@ -153,6 +153,7 @@ body {
     width: 75%;
     background: linear-gradient(90deg, #f5f0e6, #fff5e1);
     border-radius: 10px;
+    
     .mood-glow {
   position: absolute;
   top: 50%;
